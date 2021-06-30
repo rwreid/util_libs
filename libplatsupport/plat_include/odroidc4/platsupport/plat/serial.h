@@ -7,17 +7,18 @@
 
 #pragma once
 
-#define UART0_PADDR     0xffd00000
-#define UART1_PADDR     0xffd00000
-#define UART2_PADDR     0xffd00000
-#define UART0_AO_PADDR  0xff800000
-#define UART2_AO_PADDR  0xff800000
+#define UART0_PADDR     0xffd24000 // offset 0x9000*4 is page aligned
+#define UART1_PADDR     0xffd23000 // offset 0x8c00*4
+#define UART2_PADDR     0xffd22000 // offset 0x8800*4
+#define UART0_AO_PADDR  0xff803000 // Memory Map 0xff803000 - 0xff803fff, dts soc/bus/serial@3000
+#define UART2_AO_PADDR  0xff804000 // Memory Map 0xff804000 - 0xff804fff, dts soc/bus/serial@4000
 
-#define UART0_OFFSET    0x24000    /* 0x9000*4 */
-#define UART1_OFFSET    0x23000    /* 0x8c00*4 */
-#define UART2_OFFSET    0x22000    /* 0x8800*4 */
-#define UART0_AO_OFFSET 0x3000     /* Memory Map 0xff803000 - 0xff803fff, dts soc/bus/serial@3000 */
-#define UART2_AO_OFFSET 0x4000     /* Memory Map 0xff804000 - 0xff804fff, dts soc/bus/serial@4000 */
+/* UART adresses are all page aligned for odroidc4, compared to odroidc2, hence zero offset */
+#define UART0_OFFSET    0x0
+#define UART1_OFFSET    0x0
+#define UART2_OFFSET    0x0
+#define UART0_AO_OFFSET 0x0
+#define UART2_AO_OFFSET 0x0
 
 #define UART0_IRQ       58
 #define UART1_IRQ       107
